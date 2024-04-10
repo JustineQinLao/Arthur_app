@@ -2,7 +2,7 @@ set -o errexit
 
 pip install -r requirements.txt
 
-cd hello_django
+cd clan
 
 python manage.py collectstatic --no-input
 python manage.py migrate

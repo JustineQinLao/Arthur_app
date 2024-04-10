@@ -1,7 +1,7 @@
 set -o errexit
 
 
-cd hello_django
+cd clan
 
-gunicorn hello_django.wsgi
+gunicorn clan.wsgi
 
