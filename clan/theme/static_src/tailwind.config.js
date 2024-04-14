@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+    darkMode: 'class',
     content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
@@ -42,7 +43,25 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'button-primary': '#5b2a86',
+                'button-secondary': '#944bbb',
+                'button-tertiary': '#aa7bc3',
+
+
+
+                'dark-primary': '#2E294E',
+                'dark-secondary': '#415A77',
+                'dark-tertiary': '#360568',
+
+                'light-primary': '#cb997e',
+                'light-secondary': '#f8edeb',
+                'light-tertiary': '#fec89a',
+
+            },
+        },
+       
     },
     plugins: [
         /**

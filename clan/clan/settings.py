@@ -31,7 +31,7 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ["*"]
 
-
+LOGIN_URL = 'login'
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,12 +43,22 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'tailwind',
     'theme',
+    'django_browser_reload',
     'we_site',
+    'fontawesomefree',
+    
 ]
 
 TAILWIND_APP_NAME = 'theme'
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+    os.environ.get('INTERNAL_IP'),
+]
+
 # NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+NPM_BIN_PATH = os.environ.get('NPM_BIN_PATH')
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -78,6 +88,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
+                "theme.context_processors.theme",
             ],
         },
     },
@@ -150,6 +162,7 @@ STATIC_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
